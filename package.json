@@ -19,17 +19,95 @@
             {
                 "command": "extension.sayHello",
                 "title": "Hello World"
+            },
+            {
+                "command": "nasExt.CreateWebApp",
+                "title": "Create New Web App",
+                "category": "Nebulas",
+                "icon": {
+                    "light": "resources/light/createAppSvc.svg",
+                    "dark": "resources/dark/createAppSvc.svg"
+                }
+            },            {
+                "command": "nasExt.checkTxStatus",
+                "title": "Check TX Status",
+                "category": "Nebulas",
+                "icon": {
+                    "light": "resources/light/filter.svg",
+                    "dark": "resources/dark/filter.svg"
+                }
+            },
+            {
+                "command": "nasExt.Deploy",
+                "title": "Deploy to Web App",
+                "category": "Nebulas",
+                "icon": {
+                    "light": "resources/light/Deploy.svg",
+                    "dark": "resources/dark/Deploy.svg"
+                }
+            },
+            {
+                "command": "nasExt.Refresh",
+                "title": "Refresh",
+                "category": "Nebulas",
+                "icon": {
+                    "light": "resources/light/refresh.svg",
+                    "dark": "resources/dark/refresh.svg"
+                }
             }
-        ]
-    },
-    "viewsContainers": {
+        ],
+        "viewsContainers": {
             "activitybar": [
                 {
                     "id": "nas",
                     "title": "Nebulas",
-                    "icon": "/resources/azure.svg"
+                    "icon": "resources/nas.png"
                 }
             ]
+    },
+    "views": {
+            "nas": [
+                {
+                    "id": "nasExt",
+                    "name": "Tools"
+                }
+            ]
+    },
+    "menus": {
+        "commandPalette": [
+            {
+                "command": "nasExt.checkTxStatus",
+                "when": "never"
+            }
+        ],
+        "view/title": [
+            {
+                "command": "nasExt.CreateWebApp",
+                "when": "view == nasExt",
+                "group": "navigation@1"
+            },
+            {
+                "command": "nasExt.Deploy",
+                "when": "view == nasExt",
+                "group": "navigation@2"
+            },
+            {
+                "command": "nasExt.Refresh",
+                "when": "view == nasExt",
+                "group": "navigation@3"
+            }
+        ],
+        "view/item/context": [
+            {
+                "command": "nasExt.checkTxStatus",
+                "group": "inline"
+            }
+        ],
+        "explorer/context": [
+        ],
+        "editor/context": [
+        ]
+    }
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
